@@ -33,15 +33,15 @@ function setGame() {
     container.innerHTML=""; 
     gameText.style.display='none'
     clearInterval(timeInterval)
-    timeInterval = setInterval(()=> {
-        playTime.innerText = time;
-        time++;
-    },1000)
 
     tiles= createImageTiles();
     tiles.forEach(tile=> container.appendChild(tile))
     setTimeout(()=>{
         shuffle(tiles).forEach(tile=> container.appendChild(tile))
+        timeInterval = setInterval(()=> {
+            playTime.innerText = time;
+            time++;
+        },1000)
     },5000)
 }
 
